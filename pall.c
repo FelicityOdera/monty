@@ -1,26 +1,22 @@
+
 #include "monty.h"
-
 /**
- * m_pall - print all values on `stack' starting from the top
- * @stack: double pointer to head of stack
- * @line_number: line number being executed from script file
- *
- * Return: void
- */
-void m_pall(stack_t **stack, unsigned int line_number)
+*pall - function to print stack's elements
+*@line_number: will not be used , we usse attribute not void
+*@stack: pointer to the head of the doubly linked list
+*Return: Nothing
+*/
+
+void pall(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 {
-	stack_t *head;
+stack_t *current = *stack;
 
-	(void)(line_number);
+if (stack == NULL || *stack == NULL)
+return;
 
-	head = *stack;
-	while (head != NULL)
-	{
-		printf("%d\n", head->n);
-		head = head->next;
-		if (head == *stack)
-		{
-			return;
-		}
-	}
+while (current != NULL)
+{
+printf("%d\n", current->n);
+current = current->next;
+}
 }
